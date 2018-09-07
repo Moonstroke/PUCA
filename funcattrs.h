@@ -3,7 +3,7 @@
 
 
 
-#ifdef __GNUC__
+#ifdef __GNUC__ /* compiled as GNU C (GCC or Clang) */
 # define INLINE __attribute__((__always_inline__)) inline
 # define NODISCARD __attribute__((__warn_unused_result__))
 # define NORETURN __attribute__((__noreturn__))
@@ -12,7 +12,7 @@
 # define CONSTEXPR __attribute__((__const__,__warn_unused_result__))
 # define MALLOC __attribute__((__malloc__,__warn_unused_result__))
 
-#else /* __GNUC__ */
+#else /* non-GNU C */
 # define INLINE inline
 # define NODISCARD
 # define NORETURN
