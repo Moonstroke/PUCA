@@ -23,4 +23,11 @@
 
 #endif
 
+
+#ifdef OO_ATTRS /* Object-oriented function attributes */
+# define CTOR MALLOC
+# define MEMBER NOTNULL(1)
+
+#endif
+
 #endif /* FUNC_ATTRS_H */

@@ -10,3 +10,8 @@
 #undef PURE
 #undef CONSTEXPR
 #undef MALLOC
+
+#ifdef OO_ATTRS
+# undef CTOR
+# undef MEMBER
+#endif
