@@ -5,6 +5,7 @@
 
 #undef INLINE
 #undef NODISCARD
+#undef NORETURN
 #undef NOTNULL
 #undef PURE
 #undef CONSTEXPR

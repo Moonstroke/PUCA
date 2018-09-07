@@ -8,6 +8,8 @@
 
 # define NODISCARD __attribute__((__warn_unused_result__))
 
+# define NORETURN __attribute__((__noreturn__))
+
 # define NOTNULL(...) __attribute__((__nonnull__(__VA_ARGS__)))
 
 # define PURE __attribute__((__pure__,__warn_unused_result__))
@@ -20,6 +22,8 @@
 #define INLINE inline
 
 #define NODISCARD
+
+#define NORETURN
 
 #define NOTNULL(...)
 
