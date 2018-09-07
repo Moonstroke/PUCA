@@ -7,5 +7,5 @@
 #undef NODISCARD
 #undef NOTNULL
 #undef PURE
-#undef CONST
+#undef CONSTEXPR
 #undef MALLOC
