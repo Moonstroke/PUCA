@@ -4,6 +4,7 @@
 
 
 #undef INLINE
+#undef NODISCARD
 #undef NOTNULL
 #undef PURE
 #undef CONST

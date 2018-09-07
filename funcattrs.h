@@ -6,6 +6,8 @@
 #ifdef __GNUC__
 # define INLINE __attribute__((__always_inline__)) inline
 
+# define NODISCARD __attribute__((__warn_unused_result__))
+
 # define NOTNULL(...) __attribute__((__nonnull__(__VA_ARGS__)))
 
 # define PURE __attribute__((__pure__))
@@ -16,6 +18,8 @@
 #else /* __GNUC__ */
 
 #define INLINE inline
+
+#define NODISCARD
 
 #define NOTNULL(...)
 
