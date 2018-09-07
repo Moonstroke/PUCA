@@ -7,3 +7,4 @@
 #undef NOTNULL
 #undef PURE
 #undef CONST
+#undef MALLOC

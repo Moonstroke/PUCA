@@ -11,6 +11,8 @@
 # define PURE __attribute__((__pure__))
 # define CONST __attribute__((__const__))
 
+# define MALLOC __attribute__((__malloc__))
+
 #else /* __GNUC__ */
 
 #define INLINE inline
@@ -19,6 +21,8 @@
 
 #define PURE
 #define CONST
+
+#define MALLOC
 
 #endif
 
