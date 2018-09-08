@@ -13,13 +13,28 @@
 # define MALLOC __attribute__((__malloc__,__warn_unused_result__))
 
 #else /* non-GNU C */
-# define INLINE inline
-# define NODISCARD
-# define NORETURN
+# ifdef _MSC_VER /* MSVC compiler */
+#  define INLINE __forceinline
+#  define NORETURN __declspec(noreturn)
+#  if _MSC_VER >= 1700 /* MSVC 2012 and higher */
+#   define NODISCARD _Check_return_ /* Needed on both function decl and defn */
+#  else
+#   define NODISCARD
+#  endif
+#  define PURE __declspec(noalias) /* NOTE: this value allows function to modify
+                                      memory pointed to by its pointer args */
+#  define MALLOC __declspec(restrict)
+
+# else /* not MSVC */
+#  define INLINE inline
+#  define NORETURN
+#  define PURE
+#  define MALLOC
+#  define NODISCARD
+# endif /* _MSC_VER */
+
 # define NOTNULL(...)
-# define PURE
 # define CONSTEXPR
-# define MALLOC
 
 #endif /* __GNUC__ */
 
