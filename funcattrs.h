@@ -27,7 +27,11 @@
 
 # else /* not MSVC */
 #  define INLINE inline
-#  define NORETURN
+#  if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L /* ISO C11 */
+#   define NORETURN _Noreturn
+#  else
+#   define NORETURN
+#  endif
 #  define PURE
 #  define MALLOC
 #  define NODISCARD
