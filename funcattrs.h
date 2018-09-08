@@ -21,13 +21,13 @@
 # define CONSTEXPR
 # define MALLOC
 
-#endif
+#endif /* __GNUC__ */
 
 
 #ifdef OO_ATTRS /* Object-oriented function attributes */
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1)
 
-#endif
+#endif /* OO_ATTRS */
 
 #endif /* FUNC_ATTRS_H */
