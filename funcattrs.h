@@ -4,7 +4,7 @@
 
 
 #ifdef __GNUC__ /* compiled as GNU C (GCC or Clang) */
-# define INLINE __attribute__((__always_inline__)) inline
+# define INLINE __attribute__((__always_inline__,__artificial__)) inline
 # define NODISCARD __attribute__((__warn_unused_result__))
 # define NORETURN __attribute__((__noreturn__))
 # define NOTNULL(...) __attribute__((__nonnull__(__VA_ARGS__)))
