@@ -16,7 +16,7 @@
 # define COLDSPOT __attribute__((__cold__))
 
 # define VISIBLE __attribute__((__visibility__(default)))
-# define INTERNAL __attribute__((__visibility__(internal)))
+# define INTERNAL __attribute__((__visibility__(internal))) static
 
 #else /* non-GNU C */
 # ifdef _MSC_VER /* MSVC compiler */
@@ -53,7 +53,7 @@
 # define HOTSPOT
 # define COLDSPOT
 
-# define INTERNAL
+# define INTERNAL static
 
 #endif /* __GNUC__ */
 
