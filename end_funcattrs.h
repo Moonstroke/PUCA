@@ -12,6 +12,8 @@
 #undef MALLOC
 #undef HOTSPOT
 #undef COLDSPOT
+#undef VISIBLE
+#undef INTERNAL
 
 #ifdef OO_ATTRS
 # undef CTOR

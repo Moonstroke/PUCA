@@ -15,6 +15,9 @@
 # define HOTSPOT __attribute__((__hot__))
 # define COLDSPOT __attribute__((__cold__))
 
+# define VISIBLE __attribute__((__visibility__(default)))
+# define INTERNAL __attribute__((__visibility__(internal)))
+
 #else /* non-GNU C */
 # ifdef _MSC_VER /* MSVC compiler */
 #  define INLINE __forceinline
@@ -28,6 +31,8 @@
                                       memory pointed to by its pointer args */
 #  define MALLOC __declspec(restrict)
 
+#  define VISIBLE __declspec(dllexport)
+
 # else /* not MSVC */
 #  define INLINE inline
 #  if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L /* ISO C11 */
@@ -38,6 +43,8 @@
 #  define PURE
 #  define MALLOC
 #  define NODISCARD
+#  define VISIBLE
+
 # endif /* _MSC_VER */
 
 # define NOTNULL(...)
@@ -45,6 +52,8 @@
 
 # define HOTSPOT
 # define COLDSPOT
+
+# define INTERNAL
 
 #endif /* __GNUC__ */
 
