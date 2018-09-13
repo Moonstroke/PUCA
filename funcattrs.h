@@ -12,6 +12,9 @@
 # define CONSTEXPR __attribute__((__const__,__warn_unused_result__))
 # define MALLOC __attribute__((__malloc__,__warn_unused_result__))
 
+# define HOTSPOT __attribute__((__hot__))
+# define COLDSPOT __attribute__((__cold__))
+
 #else /* non-GNU C */
 # ifdef _MSC_VER /* MSVC compiler */
 #  define INLINE __forceinline
@@ -39,6 +42,9 @@
 
 # define NOTNULL(...)
 # define CONSTEXPR
+
+# define HOTSPOT
+# define COLDSPOT
 
 #endif /* __GNUC__ */
 

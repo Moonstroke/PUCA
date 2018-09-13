@@ -10,6 +10,8 @@
 #undef PURE
 #undef CONSTEXPR
 #undef MALLOC
+#undef HOTSPOT
+#undef COLDSPOT
 
 #ifdef OO_ATTRS
 # undef CTOR
