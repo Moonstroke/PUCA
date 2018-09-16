@@ -24,6 +24,7 @@
 # define INTERNAL __attribute__((__visibility__(internal))) static
 
 # define DEFAULT __attribute__((weak))
+# define ALIASES(func) __attribute__((weakref(#func)))
 
 #else /* non-GNU C */
 
@@ -73,6 +74,7 @@
 # define INTERNAL static
 
 # define DEFAULT
+# define ALIASES(func)
 
 #endif /* __GNUC__ */
 
