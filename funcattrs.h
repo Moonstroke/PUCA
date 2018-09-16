@@ -4,12 +4,17 @@
 
 
 #ifdef __GNUC__ /* compiled as GNU C (GCC or Clang) */
+
 # define INLINE __attribute__((__always_inline__,__artificial__)) inline
+
 # define NODISCARD __attribute__((__warn_unused_result__))
 # define NORETURN __attribute__((__noreturn__))
+
 # define NOTNULL(...) __attribute__((__nonnull__(__VA_ARGS__)))
+
 # define PURE __attribute__((__pure__,__warn_unused_result__))
 # define CONSTEXPR __attribute__((__const__,__warn_unused_result__))
+
 # define MALLOC __attribute__((__malloc__,__warn_unused_result__))
 
 # define HOTSPOT __attribute__((__hot__))
@@ -19,35 +24,45 @@
 # define INTERNAL __attribute__((__visibility__(internal))) static
 
 #else /* non-GNU C */
+
 # ifdef _MSC_VER /* MSVC compiler */
 #  define INLINE __forceinline
-#  define NORETURN __declspec(noreturn)
+
 #  if _MSC_VER >= 1700 /* MSVC 2012 and higher */
 #   define NODISCARD _Check_return_ /* Needed on both function decl and defn */
 #  else
 #   define NODISCARD
 #  endif
+#  define NORETURN __declspec(noreturn)
+
 #  define PURE __declspec(noalias) /* NOTE: this value allows function to modify
                                       memory pointed to by its pointer args */
+
 #  define MALLOC __declspec(restrict)
 
 #  define VISIBLE __declspec(dllexport)
 
 # else /* not MSVC */
+
 #  define INLINE inline
+
+#  define NODISCARD
 #  if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L /* ISO C11 */
 #   define NORETURN _Noreturn
 #  else
 #   define NORETURN
 #  endif
+
 #  define PURE
+
 #  define MALLOC
-#  define NODISCARD
+
 #  define VISIBLE
 
 # endif /* _MSC_VER */
 
 # define NOTNULL(...)
+
 # define CONSTEXPR
 
 # define HOTSPOT
@@ -59,6 +74,7 @@
 
 
 #ifdef OO_ATTRS /* Object-oriented function attributes */
+
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1)
 
