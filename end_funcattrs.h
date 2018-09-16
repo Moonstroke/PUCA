@@ -14,6 +14,7 @@
 #undef COLDSPOT
 #undef VISIBLE
 #undef INTERNAL
+#undef DEFAULT
 
 #ifdef OO_ATTRS
 # undef CTOR

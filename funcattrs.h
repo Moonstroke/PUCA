@@ -23,6 +23,8 @@
 # define VISIBLE __attribute__((__visibility__(default)))
 # define INTERNAL __attribute__((__visibility__(internal))) static
 
+# define DEFAULT __attribute__((weak))
+
 #else /* non-GNU C */
 
 # ifdef _MSC_VER /* MSVC compiler */
@@ -69,6 +71,8 @@
 # define COLDSPOT
 
 # define INTERNAL static
+
+# define DEFAULT
 
 #endif /* __GNUC__ */
 
