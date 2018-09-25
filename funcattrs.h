@@ -24,7 +24,9 @@
 # define INTERNAL __attribute__((__visibility__(internal))) static
 
 # define DEFAULT __attribute__((__weak__))
-# define ALIAS(func) extern __attribute__((__weakref__(#func)))
+# ifdef HAS_ALIAS
+#  define ALIAS(func) extern __attribute__((__weakref__(#func)))
+# endif
 
 #else /* non-GNU C */
 
@@ -74,7 +76,10 @@
 # define INTERNAL static
 
 # define DEFAULT
-# define ALIAS(func)
+# ifdef HAS_ALIAS
+#  error Attribute ALIAS declared empty
+#  define ALIAS(func)
+# endif
 
 #endif /* __GNUC__ */
 
