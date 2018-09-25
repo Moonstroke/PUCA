@@ -15,7 +15,7 @@
 #undef VISIBLE
 #undef INTERNAL
 #undef DEFAULT
-#undef ALIASES
+#undef ALIAS
 
 #ifdef OO_ATTRS
 # undef CTOR
