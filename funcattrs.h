@@ -23,8 +23,8 @@
 # define VISIBLE __attribute__((__visibility__(default)))
 # define INTERNAL __attribute__((__visibility__(internal))) static
 
-# define DEFAULT __attribute__((weak))
-# define ALIASES(func) __attribute__((weakref(#func)))
+# define DEFAULT __attribute__((__weak__))
+# define ALIASES(func) extern __attribute__((__weakref__(#func)))
 
 #else /* non-GNU C */
 
