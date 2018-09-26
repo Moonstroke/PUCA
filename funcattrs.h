@@ -77,8 +77,7 @@
 
 # define DEFAULT
 # ifdef HAS_ALIAS
-#  error Attribute ALIAS declared empty
-#  define ALIAS(func)
+#  error Cannot have aliases without GNU C
 # endif
 
 #endif /* __GNUC__ */
