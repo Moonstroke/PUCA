@@ -1,3 +1,10 @@
+/**
+ * \file end_funcattrs.h
+ * \author joH1
+ * \version 0.1
+ *
+ **/
+
 #ifndef FUNC_ATTRS_H
 # warning end_funcattrs.h included without funcattrs.h
 #endif

@@ -1,3 +1,14 @@
+/**
+ * \file funcattrs.h
+ * \author joH1
+ * \version 0.1
+ *
+ * \brief Function qualifiers for declarations and/or definitions.
+ *
+ * This file provides definitions of a number of function attributes, that are
+ * qualifiers designed to provide details on the function's behavior, and serve
+ * as hints for the compiler or informational fragments for the reader.
+ */
 #ifndef FUNC_ATTRS_H
 #define FUNC_ATTRS_H
 
@@ -89,5 +100,122 @@
 # define MEMBER NOTNULL(1)
 
 #endif /* OO_ATTRS */
+
+/**
+ * \def INLINE
+ *
+ * \brief The function's code is expanded in place of a call.
+ */
+
+/**
+ * \def NODISCARD
+ *
+ * \brief The value returned should be checked, a warning is emitted if
+ *        discarded.
+ */
+
+/**
+ * \def NORETURN
+ *
+ * \brief The function does not return to the caller.
+ */
+
+/**
+ * \def NOTNULL(...)
+ *
+ * \brief The arguments to the functions whose indices are given must not be
+ *        \c NULL pointers.
+ *
+ * \param[in] ... The indices (starting from 1) at which pointers must not be
+ *                \c NULL.
+ */
+
+/**
+ * \def PURE
+ *
+ * \brief The function only performs calculations on its arguments and has no
+ *        side effects.
+ *
+ * \warning The definition is looser under MSVC, where it allows pointed memory
+ *          to be modified.
+ */
+
+/**
+ * \def CONSTEXPR
+ *
+ * \brief The function has no side effects and does not even access external
+ *        data (memory through pointers, global variables).
+ *
+ * \note This attribute imposes a stricter meaning on the function than \c PURE,
+ *       as a pure function may dereference its pointer arguments.
+ */
+
+/**
+ * \def MALLOC
+ *
+ * \brief The function returns a pointer to a portion of memory just allocated
+ *        and unaliased (never referenced anywhere else in the program).
+ */
+
+/**
+ * \def HOTSPOT
+ *
+ * \brief The function is called frequently and should be therefore optimized
+ *        more aggressively.
+ */
+
+/**
+ * \def COLDSPOT
+ *
+ * \brief The function is seldom called and should be optimized for space rather
+ *        than memory.
+ *
+ * A branch consisting of a call to a cold function will be considered the
+ * unlikely path during branch prediction processing.
+ */
+
+/**
+ * \def VISIBLE
+ *
+ * \brief The function is visible from other modules.
+ */
+
+/**
+ * \def INTERNAL
+ *
+ * \brief The function is nt visible from other modules.
+ */
+
+/**
+ * \def DEFAULT
+ *
+ * \brief The functions is declared as a weak symbol, designed to be overriden
+ *        from outside the module.
+ */
+
+/**
+ * \def ALIAS(func)
+ *
+ * \brief The function aliases the other symbol given as parameter.
+ *
+ * \param[in] func The identifier to alias
+ */
+
+/** \defgroup oo_attrs Object-oriented like attributes
+ * \{
+ */
+/**
+ * \def CTOR
+ *
+ * \brief The function returns a new instance of the related type.
+ */
+
+/**
+ * \def MEMBER
+ *
+ * \brief The function takes, as first argument, an instance of the related type
+ *        on which to perform the designed action.
+ */
+/** \} */
 
 #endif /* FUNC_ATTRS_H */
