@@ -1,2 +1,2 @@
-# FuncAttrs
-## Standardized function attributes for C11
+# Attrs
+## Portable attributes for multiple flavors of C
