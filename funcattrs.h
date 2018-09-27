@@ -167,6 +167,22 @@
  */
 
 /**
+ * \def THISCALL
+ *
+ * \brief On x86 architectures, pass the first argument in the register \c ECX.
+ *
+ * \note This attribute is C++-specific under Windows; however GCC allows it for
+ *       C functions as well.
+ */
+
+/**
+ * \def FASTCALL
+ *
+ * \brief On x86 architectures, pass the txo first arguments in the registers
+ *        \c ECX and EDX, respectively.
+ */
+
+/**
  * \def HOTSPOT
  *
  * \brief The function is called frequently and should be therefore optimized
