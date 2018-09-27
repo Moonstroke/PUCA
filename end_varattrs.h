@@ -4,3 +4,7 @@
 
 
 #undef THREADLOCAL
+
+#if defined(HAVE_DTOR)
+# undef DTOR
+#endif
