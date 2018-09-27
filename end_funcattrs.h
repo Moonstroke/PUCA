@@ -17,6 +17,8 @@
 #undef PURE
 #undef CONSTEXPR
 #undef MALLOC
+#undef THISCALL
+#undef FASTCALL
 #undef HOTSPOT
 #undef COLDSPOT
 #undef VISIBLE

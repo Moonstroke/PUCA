@@ -28,6 +28,9 @@
 
 # define MALLOC __attribute__((__malloc__,__warn_unused_result__))
 
+# define THISCALL __attribute__((__thiscall__))
+# define FASTCALL __attribute__((__fastcall__))
+
 # define HOTSPOT __attribute__((__hot__))
 # define COLDSPOT __attribute__((__cold__))
 
@@ -56,6 +59,9 @@
 
 #  define MALLOC __declspec(restrict)
 
+#  define THISCALL __thiscall /* Note: currently C++-only */
+#  define FASTCALL __fastcall
+
 #  define VISIBLE __declspec(dllexport)
 
 # else /* not MSVC */
@@ -72,6 +78,9 @@
 #  define PURE
 
 #  define MALLOC
+
+#  define THISCALL
+#  define FASTCALL
 
 #  define VISIBLE
 
@@ -97,7 +106,7 @@
 #ifdef OO_ATTRS /* Object-oriented function attributes */
 
 # define CTOR MALLOC
-# define MEMBER NOTNULL(1)
+# define MEMBER NOTNULL(1) THISCALL
 
 #endif /* OO_ATTRS */
 
