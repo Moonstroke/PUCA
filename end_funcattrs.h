@@ -17,7 +17,7 @@
  * minimized.
  **/
 
-#ifndef FUNC_ATTRS_H
+#ifndef FUNCATTRS_H
 # warning end_funcattrs.h included without funcattrs.h
 #endif
 

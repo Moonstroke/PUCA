@@ -9,8 +9,8 @@
  * qualifiers designed to provide details on the function's behavior, and serve
  * as hints for the compiler or informational fragments for the reader.
  */
-#ifndef FUNC_ATTRS_H
-#define FUNC_ATTRS_H
+#ifndef FUNCATTRS_H
+#define FUNCATTRS_H
 
 
 
@@ -243,4 +243,4 @@
  */
 /** \} */
 
-#endif /* FUNC_ATTRS_H */
+#endif /* FUNCATTRS_H */
