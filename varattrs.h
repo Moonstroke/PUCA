@@ -7,19 +7,29 @@
 
 # define THREADLOCAL __thread
 
+# define ALIGN(n) __attribute__((__aligned__(n)))
+
 #else /* non-GNU C */
 
 # ifdef _MSC_VER /* MSVC */
 
 #  define THREADLOCAL __declspec(thread)
 
+# define ALIGN(n) __declspec(align(n))
+
 # else /* non-GNU non-Windows C */
 
 #  if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L /* ISO C11 */
 #   define THREADLOCAL _Thread_local
+#   define ALIGN(n) _Alignas(n)
+
 #  else /* non-GNU, non-Windows, non-ISO-C11 C */
+
 #   warning Vanilla C, THREADLOCAL defined empty
 #   define THREADLOCAL
+
+#   define ALIGN(n)
+
 #  endif
 
 # endif /* _MSC_VER */
