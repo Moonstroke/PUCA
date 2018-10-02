@@ -1,4 +1,4 @@
-#ifndef VAR_ATTRS_H
+#ifndef VARATTRS_H
 # warning end_varattrs.h included without varattrs.h
 #endif
 
