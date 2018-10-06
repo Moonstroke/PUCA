@@ -9,7 +9,7 @@
  * variable attributes declared in varattrs.h, to clean up the macros namespace.
  */
 
-#ifndef VAR_ATTRS_H
+#ifndef VARATTRS_H
 # warning end_varattrs.h included without varattrs.h
 #endif
 
