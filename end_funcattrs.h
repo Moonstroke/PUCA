@@ -3,7 +3,7 @@
  * \author joH1
  * \version 0.1
  *
- * \brief Include this file to remove the attributes.
+ * \brief Include this file to remove the function attributes.
  *
  * This file is designed to be included at the end of a user's code, to remove
  * access to the attributes.
@@ -15,7 +15,7 @@
  * included last (to avoid name clashes), this mechanism ensures that, between
  * two files, the namespace is kept clean and identifier ambiguities are
  * minimized.
- **/
+ */
 
 #ifndef FUNCATTRS_H
 # warning end_funcattrs.h included without funcattrs.h
