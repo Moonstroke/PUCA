@@ -1,5 +1,7 @@
+CFLAGS := -pedantic -Wall -Wextra
+
 all:
-	$(CC) test.c
+	$(CC) $(CFLAGS) test.c
 	./a.out
 
 clean:
