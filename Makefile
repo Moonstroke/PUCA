@@ -2,14 +2,16 @@ PROJ_NAME := attrs
 
 INC_DIR := inc
 GEN_DIR := gen
+OUT_DIR := out
 
 CFLAGS := -pedantic -Wall -Wextra
 CPPFLAGS := -I$(INC_DIR)
 
-TEST_EXEC := test_$(PROJ_NAME)
+TEST_EXEC := $(OUT_DIR)/test_$(PROJ_NAME)
 
 
 all:
+	@mkdir -p $(OUT_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) test.c -o$(TEST_EXEC)
 	./$(TEST_EXEC)
 
@@ -18,4 +20,4 @@ cpp:
 	$(CPP) $(CPPFLAGS) test.c -o$(GEN_DIR)/test.preprocessed.c
 
 clean:
-	rm -rf $(GEN_DIR) $(TEST_EXEC)
+	rm -rf $(GEN_DIR) $(OUT_DIR)

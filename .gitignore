@@ -1,5 +1,5 @@
 doc/
 gen/
+out/
 *.o
 a.out
-test_attrs
