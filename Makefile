@@ -8,7 +8,7 @@ TEST_EXEC := test_$(PROJ_NAME)
 
 
 all:
-	$(CC) $(CFLAGS) test.c
+	$(CC) $(CFLAGS) test.c -o$(TEST_EXEC)
 	./$(TEST_EXEC)
 
 cpp:
