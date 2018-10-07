@@ -3,6 +3,7 @@ PROJ_NAME := attrs
 INC_DIR := inc
 GEN_DIR := gen
 OUT_DIR := out
+DOC_DIR := doc
 
 DOXYFILE := Doxyfile
 
@@ -26,3 +27,6 @@ doc:
 
 clean:
 	rm -rf $(GEN_DIR) $(OUT_DIR)
+
+distclean: clean
+	rm -rf $(DOC_DIR)
