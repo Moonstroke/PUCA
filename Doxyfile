@@ -112,9 +112,9 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  =
+INPUT                  = README.md inc
 INPUT_ENCODING         = UTF-8
-FILE_PATTERNS          = README.md *.h
+FILE_PATTERNS          = *.h
 RECURSIVE              = NO
 EXCLUDE                =
 EXCLUDE_SYMLINKS       = NO
