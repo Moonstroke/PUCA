@@ -5,6 +5,8 @@ GEN_DIR := gen
 OUT_DIR := out
 DOC_DIR := doc
 
+INST_DIR := /usr/local
+
 DOXYFILE := Doxyfile
 
 CFLAGS := -pedantic -Wall -Wextra
@@ -30,3 +32,10 @@ clean:
 
 distclean: clean
 	rm -rf $(DOC_DIR)
+
+install:
+	@mkdir -p $(INST_DIR)/include/$(PROJECT_NAME)
+	cp -u --target-directory=$(INST_DIR)/include/$(PROJECT_NAME) $(INC_DIR)/*.h
+
+uninstall:
+	@rm -rf $(INST_DIR)/include/$(PROJECT_NAME)
