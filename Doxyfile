@@ -4,9 +4,9 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = "Attrs"
+PROJECT_NAME           = "PUCA"
 PROJECT_NUMBER         = 0.1
-PROJECT_BRIEF          = "Portable attributes for multiple flavors of C"
+PROJECT_BRIEF          = "Portable Unified C Attributes"
 PROJECT_LOGO           =
 OUTPUT_DIRECTORY       = doc
 CREATE_SUBDIRS         = NO

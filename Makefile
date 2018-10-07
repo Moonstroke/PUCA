@@ -1,4 +1,4 @@
-PROJ_NAME := attrs
+PROJ_NAME := PUCA
 
 INC_DIR := inc
 GEN_DIR := gen
