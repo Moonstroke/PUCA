@@ -1,4 +1,5 @@
 doc/
 *.o
 a.out
+test_attrs
 *.preprocessed.c
