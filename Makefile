@@ -1,5 +1,7 @@
 PROJ_NAME := attrs
 
+GEN_DIR := gen
+
 CFLAGS := -pedantic -Wall -Wextra
 
 TEST_EXEC := test_$(PROJ_NAME)
@@ -10,7 +12,8 @@ all:
 	./$(TEST_EXEC)
 
 cpp:
-	$(CPP) test.c -o test.preprocessed.c
+	@mkdir -p $(GEN_DIR)
+	$(CPP) test.c -o $(GEN_DIR)/test.preprocessed.c
 
 clean:
-	rm test.preprocessed.c $(TEST_EXEC)
+	rm -rf $(GEN_DIR) $(TEST_EXEC)
