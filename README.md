@@ -57,13 +57,35 @@ compromise.
 
 - PURE (GNU, Windows in a certain measure)
 
+  The function does not modify memory outside its own locals: data referenced by
+  pointer arguments, global variables can be accessed, but are not modified.
+
+  *Note*: under Windows, the meaning carried by this attribute allows it to
+  modify data through its pointer arguments. However, for maximal portability,
+  this attribute should not be used for functions that do not modify global
+  memory.
+
 - CONSTEXPR (GNU)
+
+  The function does not access global memory. This attribute is stricter than
+  `PURE` in that pointer arguments must not even be dereferenced or global
+  variables, read. Examples of such functions are mathematical functions, whose
+  result only depend on the given values (`pow`, `cos`, etc.)
 
 - MALLOC (GNU, Windows)
 
+  The function returns a pointer to a chunk of memory just allocated (`malloc`
+  or other), and that is never referenced anywhere else in the program.
+
 - THISCALL (GNU, Windows)
 
+  On x86 platforms, the first parameter of the functions, if of integral type,
+  is passed using the register `ECX`.
+
 - FASTCALL (GNU, Windows)
+
+  On x86 platforms, the first two parameters of the functions, if of integral
+  type, are passed using the registers `EDX` and `ECX`.
 
 - HOTSPOT (GNU)
 
