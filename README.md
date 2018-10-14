@@ -89,7 +89,16 @@ compromise.
 
 - HOTSPOT (GNU)
 
+  The function is called often, and is an good target for more aggressive
+  optimization.
+
 - COLDSPOT (GNU)
+
+  The function is seldom called, and is to be optimized for space usage rather
+  than memory.
+
+  During the branch prediction processing, if a path is a call to a
+  `COLDSPOT` function, it is considered the unlikely path.
 
 - VISIBLE (GNU, Windows)
 
