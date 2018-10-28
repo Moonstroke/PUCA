@@ -119,12 +119,12 @@ compromise.
   be overshadowed by a user's definition of the symbol, and the user's will be
   used preferentially to the library's.
 
-- ALIAS(func) (GNU if `HAS_ALIAS` is defined)
+- ALIAS(func) (GNU if `HAVE_ALIAS` is defined)
 
   The declared function provides a name alias for the target given as parameter.
 
   This attribute carries strong meaning and can alter code's portability if
-  used; it is only defined if the guard macro `HAS_ALIAS` is defined, so that
+  used; it is only defined if the guard macro `HAVE_ALIAS` is defined, so that
   only knowing users make use of it. An error is raised if the guard is defined
   and the compilation is not carried out with a GNU-compatible compiler.
 
@@ -134,7 +134,7 @@ compromise.
 The following attributes can be considered somehow as meta-attributes: they are
 only aliases of the previous attributes, but they add a layer of abstraction by
 carrying a meaning close to concepts of object-oriented programming. They are
-defined if, and only if, the guard macro `OO_ATTRS` is itself defined.
+defined if, and only if, the guard macro `HAVE_OOATTRS` is itself defined.
 
 - CTOR
 
@@ -182,6 +182,6 @@ defined if, and only if, the guard macro `OO_ATTRS` is itself defined.
 
       void my_cleanup_voidp(void**);
   Due to its huge impact on a program's behavior, this attribute is only defined
-  if the guard macro `HAV_DTOR` is defined. If this macro is defined and the
+  if the guard macro `HAVE_DTOR` is defined. If this macro is defined and the
   compilation is not performed with a GNU-compatible compiler, an error is
   raised.

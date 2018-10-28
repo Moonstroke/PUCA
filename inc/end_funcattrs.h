@@ -37,11 +37,11 @@
 #undef INTERNAL
 #undef DEFAULT
 
-#ifdef HAS_ALIAS
+#ifdef HAVE_ALIAS
 # undef ALIAS
 #endif
 
-#ifdef OO_ATTRS
+#ifdef HAVE_OO_ATTRS
 # undef CTOR
 # undef MEMBER
 # undef PUBLIC

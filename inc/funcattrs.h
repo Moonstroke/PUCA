@@ -96,14 +96,14 @@
 # define INTERNAL static
 
 # define DEFAULT
-# ifdef HAS_ALIAS
+# ifdef HAVE_ALIAS
 #  error Cannot have aliases without GNU C
 # endif
 
 #endif /* __GNUC__ */
 
 
-#ifdef OO_ATTRS /* Object-oriented function attributes */
+#ifdef HAVE_OOATTRS /* Object-oriented function attributes */
 
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1) THISCALL
@@ -111,7 +111,7 @@
 # define PUBLIC VISIBLE
 # define PRIVATE INTERNAL
 
-#endif /* OO_ATTRS */
+#endif /* HAVE_OOATTRS */
 
 /**
  * \def INLINE
