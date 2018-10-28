@@ -25,17 +25,17 @@ cpp:
 	$(CPP) $(CPPFLAGS) test.c -o$(GEN_DIR)/test.preprocessed.c
 
 doc:
-	doxygen $(DOXYFILE)
+	@doxygen $(DOXYFILE)
 
 clean:
-	rm -rf $(GEN_DIR) $(OUT_DIR)
+	@rm -rf $(GEN_DIR) $(OUT_DIR)
 
 distclean: clean
-	rm -rf $(DOC_DIR)
+	@rm -rf $(DOC_DIR)
 
 install:
 	@mkdir -p $(INST_DIR)/include/$(PROJECT_NAME)
-	cp -u --target-directory=$(INST_DIR)/include/$(PROJECT_NAME) $(INC_DIR)/*.h
+	@cp -u --target-directory=$(INST_DIR)/include/$(PROJECT_NAME) $(INC_DIR)/*.h
 
 uninstall:
 	@rm -rf $(INST_DIR)/include/$(PROJECT_NAME)
