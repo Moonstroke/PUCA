@@ -35,11 +35,11 @@
 # endif /* _MSC_VER */
 #endif /* __GNUC__ */
 
-#if defined(HAVE_DTOR)
+#ifdef HAVE_DTOR
 # ifndef __GNUC__
 #  error Cannot have destructors without GNU C
 # endif
 # define DTOR(func) __attribute__((__cleanup__(func)))
-#endif
+#endif /* HAVE_DTOR */
 
 #endif /* VARATTRS_H */

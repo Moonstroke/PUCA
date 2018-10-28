@@ -17,6 +17,6 @@
 #undef THREADLOCAL
 #undef ALIGN
 
-#if defined(HAVE_DTOR)
+#ifdef HAVE_DTOR
 # undef DTOR
 #endif
