@@ -100,24 +100,50 @@ compromise.
   During the branch prediction processing, if a path is a call to a
   `COLDSPOT` function, it is considered the unlikely path.
 
-- VISIBLE (GNU, Windows)
+- VISIBLE (all)
 
-- INTERNAL (GNU)
+  The function is accessible from outer scope (outside the declaring unit).
+  This is the default behavior on most platforms, however this attribute makes
+  it explicit that the function is purposely accessible.
 
-  On non-GNU platforms, this attribute is defined as the keyword `static`.
+- INTERNAL (all)
 
-- DEFAULT (GNU)
+  The function is only accessible from inside the declaring file. On non-GNU
+  dialects, this attribute is only defined as the keyword `static`.
 
-  Windows platforms enable this behavior by default.
+- DEFAULT (GNU, Windows in a measure)
 
-- ALIAS (GNU if `HAS_ALIAS` is defined)
+  The definition provides a default implementation for the declared symbol, and
+  is intended to be overriden with a user-provided redefinition.
+  On Windows dialect this behavior is enabled by default: a function library may
+  be overshadowed by a user's definition of the symbol, and the user's will be
+  used preferentially to the library's.
 
+- ALIAS(func) (GNU if `HAS_ALIAS` is defined)
+
+  The declared function provides a name alias for the target given as parameter.
+
+  This attribute carries strong meaning and can alter code's portability if
+  used; it is only defined if the guard macro `HAS_ALIAS` is defined, so that
+  only knowing users make use of it. An error is raised if the guard is defined
+  and the compilation is not carried out with a GNU-compatible compiler.
+
+
+#### Object-oriented atributes
+
+The following attributes can be considered somehow as meta-attributes: they are
+only aliases of the previous attributes, but they add a layer of abstraction by
+carrying a meaning close to concepts of object-oriented programming. They are
+defined if, and only if, the guard macro `OO_ATTRS` is itself defined.
 
 - CTOR
 
+  The function returns a pointer to a new instance of the related type.
+
 - MEMBER
 
-<!-- TODO -->
+  The function takes, as its first parameter, a pointer to an instance of the
+  related type.
 
 
 ### 2. Variable attributes
@@ -135,6 +161,19 @@ compromise.
   *Note*: this attribute can only increase the storage size of the identifier,
   not decrease it.
 
-- DTOR (GNU if `HAVE_DTOR` is defined)
+- DTOR(func) (GNU if `HAVE_DTOR` is defined)
 
-<!-- TODO -->
+  The target function is automatically called with the varaible's address as
+  parameter when the variable falls out of scope. This allows to implicitly call
+  `free` on a `malloc`-ed variable implicitly. The prototype of the function is,
+  with
+  *type* the type of the variable:
+
+      void my_cleanup_func(type*);
+  so, for e.g. a `void*` variable, the prototype is:
+
+      void my_cleanup_voidp(void**);
+  Due to its huge impact on a program's behavior, this attribute is only defined
+  if the guard macro `HAV_DTOR` is defined. If this macro is defined and the
+  compilation is not performed with a GNU-compatible compiler, an error is
+  raised.
