@@ -108,6 +108,9 @@
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1) THISCALL
 
+# define PUBLIC VISIBLE
+# define PRIVATE INTERNAL
+
 #endif /* OO_ATTRS */
 
 /**
@@ -240,6 +243,18 @@
  *
  * \brief The function takes, as first argument, an instance of the related type
  *        on which to perform the designed action.
+ */
+
+/**
+ * \def PUBLIC
+ *
+ * \brief The function is accessible from outside the module.
+ */
+
+/**
+ * \def PRIVATE
+ *
+ * \brief The function is only accessible in the current module.
  */
 /** \} */
 

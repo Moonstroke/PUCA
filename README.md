@@ -145,6 +145,14 @@ defined if, and only if, the guard macro `OO_ATTRS` is itself defined.
   The function takes, as its first parameter, a pointer to an instance of the
   related type.
 
+- PUBLIC
+
+  The function is accessible from external scope.
+
+- PRIVATE
+
+  The function can only be referenced from inside the declaring module.
+
 
 ### 2. Variable attributes
 

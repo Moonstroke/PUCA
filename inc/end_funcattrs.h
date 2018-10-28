@@ -44,4 +44,6 @@
 #ifdef OO_ATTRS
 # undef CTOR
 # undef MEMBER
+# undef PUBLIC
+# undef PRIVATE
 #endif
