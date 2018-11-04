@@ -34,10 +34,6 @@
 # define HOTSPOT __attribute__((__hot__))
 # define COLDSPOT __attribute__((__cold__))
 
-# define VISIBLE __attribute__((__visibility__(default)))
-# define INTERNAL __attribute__((__visibility__(internal))) static
-
-# define DEFAULT __attribute__((__weak__))
 # ifdef HAS_ALIAS
 #  define ALIAS(func) extern __attribute__((__weakref__(#func)))
 # endif
@@ -62,8 +58,6 @@
 #  define THISCALL __thiscall /* Note: currently C++-only */
 #  define FASTCALL __fastcall
 
-#  define VISIBLE __declspec(dllexport)
-
 # else /* not MSVC */
 
 #  define INLINE inline
@@ -82,8 +76,6 @@
 #  define THISCALL
 #  define FASTCALL
 
-#  define VISIBLE
-
 # endif /* _MSC_VER */
 
 # define NOTNULL(...)
@@ -93,9 +85,6 @@
 # define HOTSPOT
 # define COLDSPOT
 
-# define INTERNAL static
-
-# define DEFAULT
 # ifdef HAVE_ALIAS
 #  error Cannot have aliases without GNU C
 # endif
@@ -107,10 +96,6 @@
 
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1) THISCALL
-
-# define PUBLIC VISIBLE
-# define PRIVATE INTERNAL
-
 #endif /* HAVE_OOATTRS */
 
 /**
@@ -203,25 +188,6 @@
  */
 
 /**
- * \def VISIBLE
- *
- * \brief The function is visible from other modules.
- */
-
-/**
- * \def INTERNAL
- *
- * \brief The function is nt visible from other modules.
- */
-
-/**
- * \def DEFAULT
- *
- * \brief The functions is declared as a weak symbol, designed to be overriden
- *        from outside the module.
- */
-
-/**
  * \def ALIAS(func)
  *
  * \brief The function aliases the other symbol given as parameter.
@@ -245,17 +211,6 @@
  *        on which to perform the designed action.
  */
 
-/**
- * \def PUBLIC
- *
- * \brief The function is accessible from outside the module.
- */
-
-/**
- * \def PRIVATE
- *
- * \brief The function is only accessible in the current module.
- */
 /** \} */
 
 #endif /* PUCA_FUNCATTRS_H */

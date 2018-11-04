@@ -1,3 +1,17 @@
+#ifndef PUCA_H
+# warning PUCA/end.h included without any PUCA header previsouly included
+#endif
+
+
+#undef VISIBLE
+#undef INTERNAL
+#undef DEFAULT
+
+#ifdef HAVE_OO_ATTRS
+# undef PUBLIC
+# undef PRIVATE
+#endif
+
 
 /* Function attributes */
 
@@ -14,9 +28,6 @@
 # undef FASTCALL
 # undef HOTSPOT
 # undef COLDSPOT
-# undef VISIBLE
-# undef INTERNAL
-# undef DEFAULT
 
 # ifdef HAVE_ALIAS
 #  undef ALIAS
@@ -25,8 +36,6 @@
 # ifdef HAVE_OO_ATTRS
 #  undef CTOR
 #  undef MEMBER
-#  undef PUBLIC
-#  undef PRIVATE
 # endif
 
 #endif
