@@ -34,7 +34,7 @@
 # define HOTSPOT __attribute__((__hot__))
 # define COLDSPOT __attribute__((__cold__))
 
-# ifdef HAS_ALIAS
+# ifdef HAVE_ALIAS
 #  define ALIAS(func) extern __attribute__((__weakref__(#func)))
 # endif
 
