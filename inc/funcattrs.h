@@ -14,7 +14,7 @@
 
 
 
-#ifdef __GNUC__ /* compiled as GNU C (GCC or Clang) */
+#ifdef __GNUC__
 
 # define INLINE __attribute__((__always_inline__,__artificial__)) inline
 
@@ -38,9 +38,9 @@
 #  define ALIAS(func) extern __attribute__((__weakref__(#func)))
 # endif
 
-#else /* non-GNU C */
+#else /* __GNUC__ */
 
-# ifdef _MSC_VER /* MSVC compiler */
+# ifdef _MSC_VER
 #  define INLINE __forceinline
 
 #  if _MSC_VER >= 1700 /* MSVC 2012 and higher */
@@ -58,7 +58,7 @@
 #  define THISCALL __thiscall /* Note: currently C++-only */
 #  define FASTCALL __fastcall
 
-# else /* not MSVC */
+# else /* _MSC_VER */
 
 #  define INLINE inline
 
@@ -92,11 +92,10 @@
 #endif /* __GNUC__ */
 
 
-#ifdef HAVE_OOATTRS /* Object-oriented function attributes */
-
+#ifdef HAVE_OOATTRS
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1) THISCALL
-#endif /* HAVE_OOATTRS */
+#endif
 
 /**
  * \def INLINE
