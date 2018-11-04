@@ -17,7 +17,7 @@
  * minimized.
  */
 
-#ifndef FUNCATTRS_H
+#ifndef PUCA_FUNCATTRS_H
 # warning end_funcattrs.h included without funcattrs.h
 #endif
 

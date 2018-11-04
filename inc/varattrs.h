@@ -1,5 +1,5 @@
-#ifndef VARATTRS_H
-#define VARATTRS_H
+#ifndef PUCA_VARATTRS_H
+#define PUCA_VARATTRS_H
 
 
 
@@ -42,4 +42,4 @@
 # define DTOR(func) __attribute__((__cleanup__(func)))
 #endif /* HAVE_DTOR */
 
-#endif /* VARATTRS_H */
+#endif /* PUCA_VARATTRS_H */

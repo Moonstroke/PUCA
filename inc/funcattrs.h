@@ -9,8 +9,8 @@
  * qualifiers designed to provide details on the function's behavior, and serve
  * as hints for the compiler or informational fragments for the reader.
  */
-#ifndef FUNCATTRS_H
-#define FUNCATTRS_H
+#ifndef PUCA_FUNCATTRS_H
+#define PUCA_FUNCATTRS_H
 
 
 
@@ -258,4 +258,4 @@
  */
 /** \} */
 
-#endif /* FUNCATTRS_H */
+#endif /* PUCA_FUNCATTRS_H */
