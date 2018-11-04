@@ -1,0 +1,16 @@
+# Using LF as EOL for all files by default
+* text=auto
+
+# C source files and headers
+*.h text diff=cpp linguist-language=C
+*.c text diff=cpp linguist-language=C
+
+# All text files
+Doxyfile text
+LICENSE  text
+Makefile text
+*.md     text
+
+# Git specific text files (not included in archives)
+.gitignore     text export-ignore
+.gitattributes text export-ignore
