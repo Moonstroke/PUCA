@@ -27,7 +27,7 @@
 #endif /* __GNUC__ */
 
 
-#ifdef HAVE_OOATTRS /* Object-oriented function attributes */
+#ifdef HAVE_OOATTRS /* Object-oriented-like attributes */
 
 # define PUBLIC VISIBLE
 # define PRIVATE INTERNAL
@@ -37,20 +37,20 @@
 /**
  * \def VISIBLE
  *
- * \brief The function is visible from other modules.
+ * \brief The symbol is visible from other modules (external linkage).
  */
 
 /**
  * \def INTERNAL
  *
- * \brief The function is nt visible from other modules.
+ * \brief The symbol is not visible from other modules; it has internal linkage.
  */
 
 /**
  * \def DEFAULT
  *
- * \brief The functions is declared as a weak symbol, designed to be overriden
- *        from outside the module.
+ * \brief The symbol is declared as weak, designed to be overriden from outside
+ *        the declaring module.
  */
 
 
@@ -60,13 +60,13 @@
 /**
  * \def PUBLIC
  *
- * \brief The function is accessible from outside the module.
+ * \brief The declared symbol is accessible from outside the module.
  */
 
 /**
  * \def PRIVATE
  *
- * \brief The function is only accessible in the current module.
+ * \brief The symbol is only accessible in the current module.
  */
 /** \} */
 
