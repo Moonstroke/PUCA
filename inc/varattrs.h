@@ -1,6 +1,8 @@
 #ifndef PUCA_VARATTRS_H
 #define PUCA_VARATTRS_H
 
+#include "puca.h" /* for common attributes */
+
 
 
 #ifdef __GNUC__

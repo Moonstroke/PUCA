@@ -12,6 +12,8 @@
 #ifndef PUCA_FUNCATTRS_H
 #define PUCA_FUNCATTRS_H
 
+#include "puca.h" /* for common attributes */
+
 
 
 #ifdef __GNUC__
