@@ -15,7 +15,7 @@ CPPFLAGS := -I$(INC_DIR)
 TEST_EXEC := $(OUT_DIR)/test_$(PROJ_NAME)
 
 
-all:
+test:
 	@mkdir -p $(OUT_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) test.c -o$(TEST_EXEC)
 	./$(TEST_EXEC)
