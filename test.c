@@ -45,5 +45,4 @@ int main(void) {
 }
 
 
-#include "end_funcattrs.h"
-#include "end_varattrs.h"
+#include "end.h"
