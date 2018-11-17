@@ -72,7 +72,7 @@
 #  define PRINTF(ifstr, ifarg) __attribute__((__format__(__printf__, ifstr, ifarg)))
 #  define SCANF(ifstr, ifarg) __attribute__((__format__(__scanf__, ifstr, ifarg)))
 #  define STRFTIME(ifstr, ifarg) __attribute__((__format__(__strftime__, ifstr, ifarg)))
-#  define STFRMON(ifstr, ifarg) __attribute__((__format__(__strfmon__, ifstr, ifarg)))
+#  define STRFMON(ifstr, ifarg) __attribute__((__format__(__strfmon__, ifstr, ifarg)))
 #  define PARSE_FMT_STR(index) __attribute__((__format_arg__(index)))
 # else
 #  warning Empty I/O attributes without GNU C
