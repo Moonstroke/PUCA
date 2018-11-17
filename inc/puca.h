@@ -1,34 +1,23 @@
 #ifndef PUCA_H
-# define PUCA_H
+#define PUCA_H
+
 
 
 #ifdef __GNUC__ /* compiled as GNU C (GCC or Clang) */
-
 # define VISIBLE __attribute__((__visibility__(default)))
 # define INTERNAL __attribute__((__visibility__(internal))) static
-
 # define DEFAULT __attribute__((__weak__))
-
 #else /* non-GNU C */
 # ifdef _MSC_VER /* MS Visual Compiler */
-
 #  define VISIBLE __declspec(dllexport)
-
 # else /* non-MS C */
-
 #  define VISIBLE
-
 # endif /* _MSC_VER */
-
 # define INTERNAL static
-
 # define DEFAULT
-
 #endif /* __GNUC__ */
 
-
 #ifdef HAVE_OOATTRS /* Object-oriented-like attributes */
-
 # define PUBLIC VISIBLE
 # define PRIVATE INTERNAL
 #endif
@@ -39,20 +28,17 @@
  *
  * \brief The symbol is visible from other modules (external linkage).
  */
-
 /**
  * \def INTERNAL
  *
  * \brief The symbol is not visible from other modules; it has internal linkage.
  */
-
 /**
  * \def DEFAULT
  *
  * \brief The symbol is declared as weak, designed to be overriden from outside
  *        the declaring module.
  */
-
 
 /** \defgroup oo_attrs Object-oriented like attributes
  * \{
@@ -62,7 +48,6 @@
  *
  * \brief The declared symbol is accessible from outside the module.
  */
-
 /**
  * \def PRIVATE
  *
