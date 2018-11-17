@@ -40,4 +40,34 @@
 # define DTOR(func) __attribute__((__cleanup__(func)))
 #endif /* HAVE_DTOR */
 
+
+/**
+ * \def THREADLOCAL
+ *
+ * \brief The variable has a different storage place for each running execution
+ *        thread.
+ */
+/**
+ * \def ALIGN(n)
+ *
+ * \brief The variable is aligned with a given size (in bytes).
+ *
+ * \param[in] n The alignment size
+ *
+ * \note The alignment can only be widened (\a n must be greater or equal to the
+ *       original size of the variable).
+ */
+/**
+ * \def DTOR(func)
+ *
+ * \brief The provided function is called when the variable is destroyed.
+ *
+ * The function is passed the address of the variable just before it goes out of
+ * scope. This allows to implicitly handle resources managed by the variable,
+ * for example heap-allocated memory.
+ *
+ * \param[in] func The function to call
+ */
+
+
 #endif /* PUCA_VARATTRS_H */
