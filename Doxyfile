@@ -278,7 +278,7 @@ EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = YES
 INCLUDE_PATH           =
 INCLUDE_FILE_PATTERNS  =
-PREDEFINED             = __GNUC__ HAVE_OOATTRS HAVE_ALIAS HAVE_DTOR
+PREDEFINED             = __GNUC__ HAVE_ALIAS HAVE_OOATTRS HAVE_IOATTRS HAVE_DTOR
 EXPAND_AS_DEFINED      =
 SKIP_FUNCTION_MACROS   = YES
 #---------------------------------------------------------------------------

@@ -94,6 +94,23 @@
 #endif /* __GNUC__ */
 
 
+#ifdef HAVE_IOATTRS
+# ifdef __GNUC__
+#  define PRINTF(ifstr, ifarg) __attribute__(__format__(__printf__, ifstr, ifarg))
+#  define SCANF(ifstr, ifarg) __attribute__(__format__(__scanf__, ifstr, ifarg))
+#  define STRFTIME(ifstr, ifarg) __attribute__(__format__(__strftime__, ifstr, ifarg))
+#  define STFRMON(ifstr, ifarg) __attribute__(__format__(__strfmon__, ifstr, ifarg))
+#  define PARSE_FMT_STR(index) __attribute__(__format_arg__(index))
+# else
+#  warning Empty I/O attributes without GNU C
+#  define PRINTF(ifstr, ifarg)
+#  define SCANF(ifstr, ifarg)
+#  define STRFTIME(ifstr, ifarg)
+#  define STRFMON(ifstr, ifarg)
+#  define PARSE_FMT_STR(index)
+# endif
+#endif
+
 #ifdef HAVE_OOATTRS
 # define CTOR MALLOC
 # define MEMBER NOTNULL(1) THISCALL
@@ -195,6 +212,57 @@
  *
  * \param[in] func The identifier to alias
  */
+
+/**
+ * \defgroup io_attrs I/O attributes
+ * \{
+ */
+/**
+ * \def PRINTF(ifstr, ifarg)
+ *
+ * \brief The argument at specified index is a \e printf() style format string.
+ *
+ * \param[in] ifstr The index of the format starting
+ * \param[in] ifarg The index of the first argument, or 0 if not applicable
+ */
+
+/**
+ * \def SCANF(ifstr, ifarg)
+ *
+ * \brief The argument at specified index is a \e scanf() style format string.
+ *
+ * \param[in] ifstr The index of the format starting
+ * \param[in] ifarg The index of the first argument, or 0 if not applicable
+ */
+
+/**
+ * \def STRFTIME(ifstr, ifarg)
+ *
+ * \brief The argument at specified index is a \e strftime() style format
+ *        string.
+ *
+ * \param[in] ifstr The index of the format starting
+ * \param[in] ifarg The index of the first argument, or 0 if not applicable
+ */
+
+/**
+ * \def STRFMON(ifstr, ifarg)
+ *
+ * \brief The argument at specified index is a \e strfmon() style format string.
+ *
+ * \param[in] ifstr The index of the format starting
+ * \param[in] ifarg The index of the first argument, or 0 if not applicable
+ */
+
+/**
+ * \def PARSE_FMT_STR(index)
+ *
+ * \brief The function parses, and returns a modified version of, a format
+ *        string.
+ *
+ * \param[in] index The index of the original format string
+ */
+/** \} */
 
 /** \defgroup oo_attrs Object-oriented like attributes
  * \{
