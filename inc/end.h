@@ -3,6 +3,7 @@
 #endif
 
 
+
 #undef VISIBLE
 #undef INTERNAL
 #undef DEFAULT
@@ -31,6 +32,14 @@
 
 # ifdef HAVE_ALIAS
 #  undef ALIAS
+# endif
+
+# ifdef HAVE_IOATTRS
+#  undef PRINTF
+#  undef SCANF
+#  undef STRFTIME
+#  undef STRFMON
+#  undef PARSE_FMT_STR
 # endif
 
 # ifdef HAVE_OO_ATTRS
