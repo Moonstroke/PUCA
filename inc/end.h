@@ -23,6 +23,8 @@
 # undef PUBLIC
 # undef PRIVATE
 #endif
+#undef DEPRECATED
+#undef DEPREC_MSG
 
 #ifdef PUCA_FUNCATTRS_H
 # undef INLINE

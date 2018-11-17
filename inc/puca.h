@@ -18,11 +18,17 @@
 # define VISIBLE __attribute__((__visibility__(default)))
 # define INTERNAL __attribute__((__visibility__(internal))) static
 # define DEFAULT __attribute__((__weak__))
+# define DEPRECATED __attribute__((__deprecated__))
+# define DEPREC_MSG(msg) __attribute__((deprecated(msg)))
 #else /* non-GNU C */
 # ifdef _MSC_VER /* MS Visual Compiler */
 #  define VISIBLE __declspec(dllexport)
+#  define DEPRECATED __declspec(deprecated)
+#  define DEPREC_MSG(msg) __declspec(deprecated(msg))
 # else /* non-MS C */
 #  define VISIBLE
+#  define DEPRECATED
+#  define DEPREC_MSG(msg)
 # endif /* _MSC_VER */
 # define INTERNAL static
 # define DEFAULT
@@ -65,6 +71,26 @@
  * \brief The symbol is only accessible in the current module.
  */
 /** \} */
+
+/**
+ * \def DEPRECATED
+ *
+ * \brief The symbol is obsolete and should not be used.
+ *
+ * A compilation warning is issued when the symbol marked obsolete is used.
+ *
+ * \note No warning is issued on the declaration of the identifier, even on
+ *       redeclaration--only usages are concerned.
+ */
+/**
+ * \def DEPREC_MSG(msg)
+ *
+ * \brief The given message is issued in a compilation warning if the symbol is
+ *        used.
+ *
+ * \param[in] msg The message to be output in a warning if the identifier is
+ *            used (must be a string literal)
+ */
 
 
 #if !defined(PUCA_FUNCATTRS_H) && !defined(PUCA_VARATTRS_H)
