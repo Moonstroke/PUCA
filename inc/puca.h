@@ -1,3 +1,14 @@
+/**
+ * \file puca.h
+ * \author joH1
+ * \version 0.1
+ *
+ * \brief Project's main header and common attributes
+ *
+ * This header can be used to include all the specific headers (\c funcattrs.h,
+ * \c varattrs.h) at once. It also defines the attributes common to all kinds of
+ * decoratable symbols.
+ */
 #ifndef PUCA_H
 #define PUCA_H
 

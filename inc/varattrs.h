@@ -1,3 +1,12 @@
+/**
+ * \file varattrs.h
+ * \author joH1
+ * \version 0.1
+ *
+ * \brief Variable attributes
+ *
+ * This header defines attributes for declarations of variables.
+ */
 #ifndef PUCA_VARATTRS_H
 #define PUCA_VARATTRS_H
 

@@ -1,3 +1,15 @@
+/**
+ * \file end.h
+ * \author joH1
+ * \version 0.1
+ *
+ * \brief Undefinitions of all attributes
+ *
+ * This file is intended to be included after all decorated declarations (or
+ * the very end of the file) as it undefines the attributes--all of them. This
+ * allows to keep a namespace globally clean. The limited scope of the attribute
+ * also permits to avoid potential name conflicts between files units.
+ */
 #ifndef PUCA_H
 # warning PUCA/end.h included without any PUCA header previsouly included
 #endif
