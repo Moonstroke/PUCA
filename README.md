@@ -32,7 +32,7 @@ compromise.
   usual function call. This can increase the size of the caller, but removes the
   function call overhead.
 
-- NODISCARD (GNU, Windows in a measure)
+- `NODISCARD` (GNU, Windows in a measure)
 
   A warning is emitted by the compiler if the value returned by the function is
   not used -- be it stored in a variable or part of an expression.
@@ -41,13 +41,13 @@ compromise.
   declaration and definition (if both exist), so for complete portability this
   attribute should always be given to both statements.
 
-- NORETURN (GNU, Windows, C11)
+- `NORETURN` (GNU, Windows, C11)
 
   The function does not return to its caller. A good example is a function
   called `die`, that calls internally `exit` or `abort`. Ths function's return
   type must be declared as `void`.
 
-- NOTNULL(...) (GNU)
+- `NOTNULL`(...) (GNU)
 
   The parameter to this attribute correspond to the indices (starting from 1) of
   pointer arguments to the function that must not be passed a value of `NULL`.
@@ -55,7 +55,7 @@ compromise.
   *Note*: this attribute only detects static `NULL`s, pointers whose value is
   determined at runtime are not diagnosed.
 
-- PURE (GNU, Windows in a certain measure)
+- `PURE` (GNU, Windows in a certain measure)
 
   The function does not modify memory outside its own locals: data referenced by
   pointer arguments, global variables can be accessed, but are not modified.
@@ -65,34 +65,34 @@ compromise.
   this attribute should not be used for functions that do not modify global
   memory.
 
-- CONSTEXPR (GNU)
+- `CONSTEXPR` (GNU)
 
   The function does not access global memory. This attribute is stricter than
   `PURE` in that pointer arguments must not even be dereferenced or global
   variables, read. Examples of such functions are mathematical functions, whose
   result only depend on the given values (`pow`, `cos`, etc.)
 
-- MALLOC (GNU, Windows)
+- `MALLOC` (GNU, Windows)
 
   The function returns a pointer to a chunk of memory just allocated (`malloc`
   or other), and that is never referenced anywhere else in the program.
 
-- THISCALL (GNU, Windows)
+- `THISCALL` (GNU, Windows)
 
   On x86 platforms, the first parameter of the functions, if of integral type,
   is passed using the register `ECX`.
 
-- FASTCALL (GNU, Windows)
+- `FASTCALL` (GNU, Windows)
 
   On x86 platforms, the first two parameters of the functions, if of integral
   type, are passed using the registers `EDX` and `ECX`.
 
-- HOTSPOT (GNU)
+- `HOTSPOT` (GNU)
 
   The function is called often, and is an good target for more aggressive
   optimization.
 
-- COLDSPOT (GNU)
+- `COLDSPOT` (GNU)
 
   The function is seldom called, and is to be optimized for space usage rather
   than memory.
@@ -100,18 +100,18 @@ compromise.
   During the branch prediction processing, if a path is a call to a
   `COLDSPOT` function, it is considered the unlikely path.
 
-- VISIBLE (all)
+- `VISIBLE` (all)
 
   The function is accessible from outer scope (outside the declaring unit).
   This is the default behavior on most platforms, however this attribute makes
   it explicit that the function is purposely accessible.
 
-- INTERNAL (all)
+- `INTERNAL` (all)
 
   The function is only accessible from inside the declaring file. On non-GNU
   dialects, this attribute is only defined as the keyword `static`.
 
-- DEFAULT (GNU, Windows in a measure)
+- `DEFAULT` (GNU, Windows in a measure)
 
   The definition provides a default implementation for the declared symbol, and
   is intended to be overriden with a user-provided redefinition.
@@ -119,7 +119,7 @@ compromise.
   be overshadowed by a user's definition of the symbol, and the user's will be
   used preferentially to the library's.
 
-- ALIAS(func) (GNU if `HAVE_ALIAS` is defined)
+- `ALIAS(func)` (GNU if `HAVE_ALIAS` is defined)
 
   The declared function provides a name alias for the target given as parameter.
 
@@ -150,24 +150,24 @@ For instance, the following declarations are valid:
     PRINTF(2, 0); // The third argument is not directly applicable to the format
                   //string
 
-- PRINTF(ifstr, ifarg)
+- `PRINTF(ifstr, ifarg)`
 
   The function takes a format string that matches the syntax of `printf`.
 
-- SCANF(ifstr, ifarg)
+- `SCANF(ifstr, ifarg)`
 
   The function takes a `scanf`-style format string and arguments.
 
-- STRFTIME(ifstr, ifarg)
+- `STRFTIME(ifstr, ifarg)`
 
   The format string in the function follows `strftime` syntax.
 
-- STRFMON(ifstr, ifarg)
+- `STRFMON(ifstr, ifarg)`
 
   The function is passed a format string and arguments following `strfmon`
   syntax.
 
-- PARSE_FMT_STR(index)
+- `PARSE_FMT_STR(index)`
 
   This attribute is different from the others. It indicates that the function
   returns a format string that is a modification from an original format string
@@ -185,20 +185,20 @@ only aliases of the previous attributes, but they add a layer of abstraction by
 carrying a meaning close to concepts of object-oriented programming. They are
 defined if, and only if, the guard macro `HAVE_OOATTRS` is itself defined.
 
-- CTOR
+- `CTOR`
 
   The function returns a pointer to a new instance of the related type.
 
-- MEMBER
+- `MEMBER`
 
   The function takes, as its first parameter, a pointer to an instance of the
   related type.
 
-- PUBLIC
+- `PUBLIC`
 
   The function is accessible from external scope.
 
-- PRIVATE
+- `PRIVATE`
 
   The function can only be referenced from inside the declaring module.
 
@@ -218,7 +218,7 @@ defined if, and only if, the guard macro `HAVE_OOATTRS` is itself defined.
   *Note*: this attribute can only increase the storage size of the identifier,
   not decrease it.
 
-- DTOR(func) (GNU if `HAVE_DTOR` is defined)
+- `DTOR(func)` (GNU if `HAVE_DTOR` is defined)
 
   The target function is automatically called with the varaible's address as
   parameter when the variable falls out of scope. This allows to implicitly call
