@@ -24,7 +24,30 @@ omitted), however the advantages are substantial and it was deemed a valuable
 compromise.
 
 
-### 1. Function attributes
+### 1. Common attributes
+
+- `VISIBLE` (all)
+
+  The symbol is accessible from outer scope (outside the declaring unit).
+  This is the default behavior on most platforms, however this attribute makes
+  it explicit that the function is purposely accessible.
+
+- `INTERNAL` (all)
+
+  The identifier can only be referenced from inside the declaring file; it has
+  internal linkage. On non-GNU dialects, this attribute is only defined as the
+  keyword `static`.
+
+- `DEFAULT` (GNU, Windows in a measure)
+
+  The definition provides a default implementation for the declared symbol, and
+  is intended to be overriden with a user-provided redefinition.
+  On Windows dialect this behavior is enabled by default: a function library may
+  be overshadowed by a user's definition of the symbol, and the user's will be
+  used preferentially to the library's.
+
+
+### 2. Function attributes
 
 - `INLINE` (GNU, Windows, ISO C11 and others in a certain measure)
 
@@ -100,25 +123,6 @@ compromise.
   During the branch prediction processing, if a path is a call to a
   `COLDSPOT` function, it is considered the unlikely path.
 
-- `VISIBLE` (all)
-
-  The function is accessible from outer scope (outside the declaring unit).
-  This is the default behavior on most platforms, however this attribute makes
-  it explicit that the function is purposely accessible.
-
-- `INTERNAL` (all)
-
-  The function is only accessible from inside the declaring file. On non-GNU
-  dialects, this attribute is only defined as the keyword `static`.
-
-- `DEFAULT` (GNU, Windows in a measure)
-
-  The definition provides a default implementation for the declared symbol, and
-  is intended to be overriden with a user-provided redefinition.
-  On Windows dialect this behavior is enabled by default: a function library may
-  be overshadowed by a user's definition of the symbol, and the user's will be
-  used preferentially to the library's.
-
 - `ALIAS(func)` (GNU if `HAVE_ALIAS` is defined)
 
   The declared function provides a name alias for the target given as parameter.
@@ -178,32 +182,8 @@ For instance, the following declarations are valid:
   The attribute also removes a compiler warning raised when the format string to
   any formatting function is not a string literal.
 
-#### Object-oriented attributes
 
-The following attributes can be considered somehow as meta-attributes: they are
-only aliases of the previous attributes, but they add a layer of abstraction by
-carrying a meaning close to concepts of object-oriented programming. They are
-defined if, and only if, the guard macro `HAVE_OOATTRS` is itself defined.
-
-- `CTOR`
-
-  The function returns a pointer to a new instance of the related type.
-
-- `MEMBER`
-
-  The function takes, as its first parameter, a pointer to an instance of the
-  related type.
-
-- `PUBLIC`
-
-  The function is accessible from external scope.
-
-- `PRIVATE`
-
-  The function can only be referenced from inside the declaring module.
-
-
-### 2. Variable attributes
+### 3. Variable attributes
 
 - `THREADLOCAL` (GNU, Windows, ISO C11)
 
@@ -234,3 +214,32 @@ defined if, and only if, the guard macro `HAVE_OOATTRS` is itself defined.
   if the guard macro `HAVE_DTOR` is defined. If this macro is defined and the
   compilation is not performed with a GNU-compatible compiler, an error is
   raised.
+
+
+### 4. Object-oriented attributes
+
+The following attributes can be considered somehow as meta-attributes: they are
+only aliases of the previous attributes, but they add a layer of abstraction by
+carrying a meaning close to concepts of object-oriented programming.
+Not all of them are bound to a simple kind of symbol; if the description
+provided here does not precise one kind the attribute can be applied to any
+symbol.
+The attributes are defined if, and only if, the guard macro `HAVE_OOATTRS` is
+itself defined.
+
+- `CTOR`
+
+  The function returns a pointer to a new instance of the related type.
+
+- `MEMBER`
+
+  The function takes, as its first parameter, a pointer to an instance of the
+  related type.
+
+- `PUBLIC`
+
+  The symbol is accessible from external scope.
+
+- `PRIVATE`
+
+  The symbol can only be referenced from inside the declaring module.
