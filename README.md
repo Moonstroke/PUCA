@@ -202,9 +202,8 @@ For instance, the following declarations are valid:
 
   The target function is automatically called with the varaible's address as
   parameter when the variable falls out of scope. This allows to implicitly call
-  `free` on a `malloc`-ed variable implicitly. The prototype of the function is,
-  with
-  *type* the type of the variable:
+  `free` on a `malloc`-ed variable. The prototype of the function is, with
+  `type` the type of the variable:
 
       void my_cleanup_func(type*);
   so, for e.g. a `void*` variable, the prototype is:
@@ -214,6 +213,10 @@ For instance, the following declarations are valid:
   if the guard macro `HAVE_DTOR` is defined. If this macro is defined and the
   compilation is not performed with a GNU-compatible compiler, an error is
   raised.
+  Not that this attribute is only effective for function-local variables with
+  automatic storage class. A compilation warning is raised when this attribute
+  is applied to a variable with `static` storage class, or a global variable. It
+  also can not be applied to a `register` since these can not be referenced.
 
 
 ### 4. Object-oriented attributes

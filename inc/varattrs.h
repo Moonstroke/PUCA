@@ -67,6 +67,10 @@
  * for example heap-allocated memory.
  *
  * \param[in] func The function to call
+ *
+ * \note This attribute only affects function-local variables of automatic
+ * storage class. \c static variables, global variable, function parameters,
+ *  etc. are not affected by this attribute.
  */
 
 
