@@ -178,7 +178,7 @@ For instance, the following declarations are valid:
   The attribute also removes a compiler warning raised when the format string to
   any formatting function is not a string literal.
 
-#### Object-oriented atributes
+#### Object-oriented attributes
 
 The following attributes can be considered somehow as meta-attributes: they are
 only aliases of the previous attributes, but they add a layer of abstraction by
