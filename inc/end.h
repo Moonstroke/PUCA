@@ -9,6 +9,9 @@
  * the very end of the file) as it undefines the attributes--all of them. This
  * allows to keep a namespace globally clean. The limited scope of the attribute
  * also permits to avoid potential name conflicts between files units.
+ *
+ * The include macros are also undefined so that any of the headers can be
+ * included again afterwards.
  */
 #ifndef PUCA_H
 # warning PUCA/end.h included without any PUCA header previsouly included
@@ -52,6 +55,7 @@
 #  undef CTOR
 #  undef MEMBER
 # endif
+# undef PUCA_FUNCATTRS_H
 #endif
 
 #ifdef PUCA_VARATTRS_H
@@ -60,4 +64,7 @@
 # ifdef HAVE_DTOR
 #  undef DTOR
 # endif
+# undef PUCA_VARATTRS_H
 #endif
+
+#undef PUCA_H
