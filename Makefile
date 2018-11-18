@@ -34,8 +34,8 @@ distclean: clean
 	@rm -rf $(DOC_DIR)
 
 install:
-	@mkdir -p $(INST_DIR)/include/$(PROJECT_NAME)
-	@cp -u --target-directory=$(INST_DIR)/include/$(PROJECT_NAME) $(INC_DIR)/*.h
+	@mkdir -p $(INST_DIR)/include/$(PROJ_NAME)
+	@cp -u --target-directory=$(INST_DIR)/include/$(PROJ_NAME) $(INC_DIR)/*.h
 
 uninstall:
-	@rm -rf $(INST_DIR)/include/$(PROJECT_NAME)
+	@rm -rf $(INST_DIR)/include/$(PROJ_NAME)
