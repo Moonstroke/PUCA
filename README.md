@@ -128,6 +128,55 @@ compromise.
   only knowing users make use of it. An error is raised if the guard is defined
   and the compilation is not carried out with a GNU-compatible compiler.
 
+#### I/O attributes
+
+Each of these attributes is related to an input or output standard function, of
+which it takes its name. It indicates that the decorated function takes a format
+string and arguments the same way the related function does. These attributes
+are only defined under GNU C, and if the guard macro `HAVE_IOATTRS` is defined.
+They hint the compiler for more advanced static checks, like sring syntax and
+arguments type checks.
+These attributes take two integer parameters, that represent indices (starting
+from 1) for arguments to the decorated function: `ifstr` represents the index of
+the format string, and `ifarg` the index of the first format argument from the
+variadic list. The second parameter can be `0` if there are no direct format
+arguments in the function.
+For instance, the following declarations are valid:
+
+    int fprintf(FILE*, const char*, ...) PRINTF(2, 3); // Format string and
+                                                       // variadic arguments
+
+    int vfprintf(FILE*, const char*, va_list)
+    PRINTF(2, 0); // The third argument is not directly applicable to the format
+                  //string
+
+- PRINTF(ifstr, ifarg)
+
+  The function takes a format string that matches the syntax of `printf`.
+
+- SCANF(ifstr, ifarg)
+
+  The function takes a `scanf`-style format string and arguments.
+
+- STRFTIME(ifstr, ifarg)
+
+  The format string in the function follows `strftime` syntax.
+
+- STRFMON(ifstr, ifarg)
+
+  The function is passed a format string and arguments following `strfmon`
+  syntax.
+
+- PARSE_FMT_STR(index)
+
+  This attribute is different from the others. It indicates that the function
+  returns a format string that is a modification from an original format string
+  given as argument, `index` refers to the index of that string. An example of
+  such a function would be an internationalization function, that translates the
+  string but keeps the format flags.
+
+  The attribute also removes a compiler warning raised when the format string to
+  any formatting function is not a string literal.
 
 #### Object-oriented atributes
 
